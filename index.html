@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABCTechDesk — Systemy IT dla biznesu</title>
+<meta name="description" content="Tworzymy dedykowane systemy IT, które automatyzują i upraszczają procesy w Twojej firmie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0F172A;--slate:#334155;--slate-light:#64748B;--orange:#F97316;--cream:#FFFBF5}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--slate);background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',serif}
+a{text-decoration:none}
+
+/* NAV */
+.nav{padding:24px 40px;display:flex;justify-content:space-between;align-items:center}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{width:42px;height:42px;background:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-name{font-family:'Fraunces',serif;font-weight:900;font-size:1.4rem;color:var(--navy);letter-spacing:-0.02em}
+.nav a.link{color:var(--slate-light);font-weight:500;font-size:0.95rem;padding:8px 16px;border-radius:8px;transition:all 0.2s}
+.nav a.link:hover{color:var(--orange);background:var(--cream)}
+
+/* HERO */
+.hero{min-height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 40px;background:linear-gradient(170deg,#fff 0%,var(--cream) 50%,#F0FDF4 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:10%;right:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(249,115,22,0.04) 0%,transparent 65%);border-radius:50%}
+.hero-inner{max-width:700px;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(15,23,42,0.05);padding:8px 20px;border-radius:50px;font-weight:600;font-size:0.85rem;color:var(--slate-light);margin-bottom:32px}
+.hero h1{font-size:3.5rem;font-weight:900;line-height:1.1;color:var(--navy);margin-bottom:24px;letter-spacing:-0.03em}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{font-size:1.2rem;color:var(--slate-light);line-height:1.75;margin-bottom:48px;max-width:550px;margin-left:auto;margin-right:auto}
+
+/* PRODUCTS */
+.products{padding:0 40px 100px}
+.products-label{text-align:center;font-size:0.85rem;font-weight:600;color:var(--slate-light);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:32px}
+.products-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+
+.product-card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:20px;padding:40px 32px;transition:all 0.3s;display:block;position:relative;overflow:hidden}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08);border-color:transparent}
+.product-card::after{content:'→';position:absolute;top:32px;right:32px;font-size:1.4rem;color:var(--slate-light);opacity:0;transition:all 0.3s;transform:translateX(-8px)}
+.product-card:hover::after{opacity:1;transform:translateX(0)}
+.card-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:20px}
+.card-icon.orange{background:var(--cream)}
+.card-icon.blue{background:#EFF6FF}
+.card-icon.green{background:#F0FDF4}
+.product-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.product-card p{color:var(--slate-light);font-size:0.95rem;line-height:1.65}
+.card-tag{display:inline-block;margin-top:16px;font-size:0.8rem;font-weight:600;padding:4px 12px;border-radius:50px}
+.tag-live{background:#DCFCE7;color:#16A34A}
+.tag-soon{background:#FEF3C7;color:#D97706}
+
+/* FOOTER */
+.footer{padding:40px;border-top:1px solid rgba(0,0,0,0.06);text-align:center;color:var(--slate-light);font-size:0.85rem}
+.footer a{color:var(--orange);font-weight:600}
+
+@media(max-width:768px){
+  .nav{padding:16px 20px}
+  .hero{padding:100px 20px 60px;min-height:70vh}
+  .hero h1{font-size:2.4rem}
+  .products{padding:0 20px 60px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo">ABC</div>
+    <div class="nav-name">ABCTechDesk</div>
+  </div>
+  <a href="mailto:kontakt@abctechdesk.com" class="link">Kontakt</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">💻 Dedykowane systemy IT</div>
+    <h1>Tworzymy systemy, które <em>upraszczają</em> biznes</h1>
+    <p>Projektujemy i wdrażamy dedykowane aplikacje webowe, które automatyzują procesy, oszczędzają czas i&nbsp;eliminują papier.</p>
+  </div>
+</section>
+
+<section class="products">
+  <div class="products-label">Nasze produkty</div>
+  <div class="products-grid">
+
+    <a href="/freshorder/" class="product-card">
+      <div class="card-icon orange">🥕</div>
+      <h3>FreshOrder</h3>
+      <p>System zamówień online dla dostawców owoców i&nbsp;warzyw. Przedszkola, szkoły, sklepy — wszystko w jednym panelu.</p>
+      <span class="card-tag tag-live">✓ Dostępny</span>
+    </a>
+
+    <div class="product-card" style="opacity:0.6;cursor:default">
+      <div class="card-icon blue">📋</div>
+      <h3>Kolejny projekt</h3>
+      <p>Nowy system w przygotowaniu. Śledź nasze aktualizacje.</p>
+      <span class="card-tag tag-soon">Wkrótce</span>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 ABCTechDesk · <a href="mailto:kontakt@abctechdesk.com">kontakt@abctechdesk.com</a></p>
+</footer>
+
+</body>
+</html>
