@@ -413,7 +413,7 @@ body {
       </div>
     </div>
     <div class="hero-visual">
-      <img src="screens/dashboard.jpg" alt="FreshOrder Dashboard" class="hero-mockup" style="border-radius:12px;">
+      <img src="/freshorder/screens/dashboard.jpg" alt="FreshOrder Dashboard" class="hero-mockup" style="border-radius:12px;">
       <div class="hero-float hero-float-1">
         <div class="num">14</div>
         <div class="label">zamówień dziś</div>
@@ -551,7 +551,7 @@ body {
         <div class="demo-dot green"></div>
         <div class="demo-url" id="demoUrl">app.freshorder.pl/admin/dashboard</div>
       </div>
-      <img id="demoScreen" src="screens/dashboard.jpg" alt="Demo screen" class="demo-screen">
+      <img id="demoScreen" src="/freshorder/screens/dashboard.jpg" alt="Demo screen" class="demo-screen">
       <div class="demo-description" id="demoDesc">
         <span class="demo-role-badge role-admin" id="demoRole">Panel Admina</span>
         <h4 id="demoTitle">Dashboard Administratora</h4>
@@ -632,50 +632,36 @@ body {
   <div class="container">
     <div class="section-header fade-up">
       <div class="overline">◆ Cennik</div>
-      <h2>Prosta, uczciwa cena</h2>
-      <p>Bez ukrytych opłat. Płacisz tylko za to, czego potrzebujesz.</p>
+      <h2>Ile to kosztuje?</h2>
+      <p>Dopasowujemy cenę do skali Twojego biznesu</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card fade-up">
-        <div class="price-name">Start</div>
-        <div class="price-amount">199 zł</div>
-        <div class="price-period">/ miesiąc</div>
-        <ul class="price-features">
-          <li>Do 10 klientów</li>
-          <li>Zamówienia online</li>
-          <li>Lista zakupów</li>
-          <li>Podstawowe raporty</li>
-          <li>Wsparcie email</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" style="width:100%;justify-content:center;">Wybierz Start</a>
-      </div>
-      <div class="price-card featured fade-up">
-        <div class="price-name">Business</div>
-        <div class="price-amount">399 zł</div>
-        <div class="price-period">/ miesiąc</div>
-        <ul class="price-features">
-          <li>Do 30 klientów</li>
-          <li>Wszystko z planu Start</li>
-          <li>Śledzenie kosztów zakupów</li>
-          <li>Zaawansowane raporty</li>
-          <li>Eksport CSV / księgowość</li>
-          <li>Wsparcie priorytetowe</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;">Wybierz Business</a>
-      </div>
-      <div class="price-card fade-up">
-        <div class="price-name">Enterprise</div>
-        <div class="price-amount">Indywidualnie</div>
-        <div class="price-period">dopasowane do potrzeb</div>
-        <ul class="price-features">
-          <li>Bez limitu klientów</li>
-          <li>Wszystko z Business</li>
-          <li>Własna domena i branding</li>
-          <li>Integracje API</li>
-          <li>Dedykowany opiekun</li>
-          <li>SLA 99.9%</li>
-        </ul>
-        <a href="#contact" class="btn btn-dark" style="width:100%;justify-content:center;">Porozmawiajmy</a>
+    <div style="max-width:700px;margin:0 auto" class="fade-up">
+      <div style="background:white;border:2px solid var(--orange);border-radius:var(--radius);padding:48px;text-align:center;box-shadow:var(--shadow-lg);">
+        <div style="font-size:14px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">Abonament miesięczny</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:52px;color:var(--gray-900);margin-bottom:4px;">od 300 zł</div>
+        <div style="font-size:16px;color:var(--gray-500);margin-bottom:32px;">netto / miesiąc</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;text-align:left;max-width:460px;margin:0 auto 36px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-700);">
+            <span style="color:var(--green);font-weight:700;">✓</span> Panel zamawiania dla klientów
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-700);">
+            <span style="color:var(--green);font-weight:700;">✓</span> Automatyczna lista zakupów
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-700);">
+            <span style="color:var(--green);font-weight:700;">✓</span> Śledzenie kosztów i marży
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-700);">
+            <span style="color:var(--green);font-weight:700;">✓</span> Raporty i eksport CSV
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-700);">
+            <span style="color:var(--green);font-weight:700;">✓</span> Zarządzanie produktami
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--gray-700);">
+            <span style="color:var(--green);font-weight:700;">✓</span> Wsparcie techniczne
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--gray-500);margin-bottom:28px;">Ostateczna cena zależy od liczby klientów i zakresu funkcji.<br>Skontaktuj się — wycenimy indywidualnie.</p>
+        <a href="#contact" class="btn btn-primary" style="font-size:16px;padding:14px 40px;">Zapytaj o wycenę →</a>
       </div>
     </div>
   </div>
@@ -820,7 +806,7 @@ document.getElementById('demoTabs').addEventListener('click', function(e) {
   img.classList.add('loading');
   
   setTimeout(() => {
-    img.src = 'screens/' + screen + '.jpg';
+    img.src = '/freshorder/screens/' + screen + '.jpg';
     document.getElementById('demoUrl').textContent = data.url;
     document.getElementById('demoTitle').textContent = data.title;
     document.getElementById('demoText').textContent = data.desc;
