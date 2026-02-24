@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABCTechDesk – Rozwiązania IT dla biznesu</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#3b82f6;--accent-l:#60a5fa;--dark:#0f172a;--g9:#0f172a;--g7:#334155;--g5:#64748b;--g3:#cbd5e1;--g1:#f1f5f9;--w:#fff;--r:16px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--g9);line-height:1.6;overflow-x:hidden}
+.ctn{max-width:1100px;margin:0 auto;padding:0 24px}
+.sec{padding:100px 0}.sec-alt{background:var(--g1)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;transition:all .3s;cursor:pointer;border:none;font-family:inherit}
+.btn-b{background:var(--accent);color:#fff}.btn-b:hover{background:var(--accent-l);transform:translateY(-2px)}
+.btn-o{border:2px solid var(--accent);color:var(--accent);background:0 0}.btn-o:hover{background:var(--accent);color:#fff}
+.btn-d{background:var(--dark);color:#fff}.btn-d:hover{background:#1e293b}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav-in{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;text-decoration:none;color:var(--dark)}
+.logo span{color:var(--accent)}
+.nav-l{display:flex;gap:28px;align-items:center}
+.nav-l a{text-decoration:none;color:var(--g7);font-size:14px;font-weight:500;transition:color .2s}
+.nav-l a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden;background:linear-gradient(170deg,#f8fafc 0%,#eef2ff 50%,#f0f9ff 100%)}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:60px 60px}
+.hero-c{position:relative;z-index:1;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:12px;background:#fff;border:1px solid var(--g3);padding:6px 16px;border-radius:6px;margin-bottom:28px;color:var(--g5)}
+.hero-tag .blink{animation:blink 1.2s infinite;color:#10b981}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero h1{font-size:clamp(36px,5.5vw,64px);font-weight:700;line-height:1.1;margin-bottom:24px;letter-spacing:-1px}
+.hero h1 .hl{background:linear-gradient(135deg,var(--accent),#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:18px;color:var(--g7);max-width:600px;margin:0 auto 36px}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-techs{display:flex;gap:32px;justify-content:center;margin-top:60px;flex-wrap:wrap}
+.hero-tech{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--g5);font-weight:500}
+.hero-tech .dot{width:8px;height:8px;border-radius:50%}
+
+/* SECTION HEADERS */
+.sh{text-align:center;margin-bottom:56px}
+.sh .tag{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:16px;display:block}
+.sh h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:16px}
+.sh p{font-size:16px;color:var(--g7);max-width:560px;margin:0 auto}
+
+/* SERVICES */
+.srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.srv{padding:36px;border-radius:var(--r);background:#fff;border:1px solid var(--g3);transition:all .4s;position:relative;overflow:hidden}
+.srv:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(59,130,246,.1);transform:translateY(-4px)}
+.srv-i{font-size:36px;margin-bottom:16px;display:block}
+.srv h3{font-size:18px;margin-bottom:8px}
+.srv p{font-size:14px;color:var(--g7)}
+.srv::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:linear-gradient(135deg,transparent 50%,rgba(59,130,246,.06) 50%);transition:all .3s}
+.srv:hover::after{width:100px;height:100px}
+
+/* PRODUCT CARD */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px}
+.prod-img{border-radius:var(--r);overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.1)}
+.prod-img img{width:100%;display:block}
+.prod-badge{display:inline-block;background:linear-gradient(135deg,#ff8c42,#e8590c);color:#fff;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:16px}
+.prod-content h3{font-size:28px;font-weight:700;margin-bottom:16px}
+.prod-content p{font-size:15px;color:var(--g7);margin-bottom:24px}
+.prod-features{list-style:none;margin-bottom:28px}
+.prod-features li{padding:6px 0;font-size:14px;color:var(--g7);display:flex;align-items:center;gap:10px}
+.prod-features li::before{content:'✓';color:var(--accent);font-weight:700;font-size:16px}
+
+/* PROCESS */
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
+.proc-g::before{content:'';position:absolute;top:40px;left:12.5%;right:12.5%;height:2px;background:var(--g3)}
+.proc{text-align:center;position:relative;z-index:1}
+.proc-n{width:80px;height:80px;border-radius:50%;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:24px;font-weight:700;margin:0 auto 20px;border:4px solid var(--accent)}
+.proc h3{font-size:15px;margin-bottom:6px}
+.proc p{font-size:13px;color:var(--g7)}
+
+/* TECH STACK */
+.tech-g{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tech-item{text-align:center;padding:24px 16px;border-radius:12px;background:#fff;border:1px solid var(--g3);transition:all .3s}
+.tech-item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tech-item .icon{font-size:32px;margin-bottom:8px;display:block}
+.tech-item span{font-size:12px;font-weight:600;color:var(--g7)}
+
+/* CTA */
+.cta-sec{background:var(--dark);padding:80px 0;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.2),transparent 70%)}
+.cta-sec h2{font-size:36px;font-weight:700;margin-bottom:16px}
+.cta-sec p{font-size:17px;color:rgba(255,255,255,.7);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* FOOTER */
+.footer{background:#0a0f1a;color:rgba(255,255,255,.5);padding:48px 0 24px}
+.footer-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer .logo{color:#fff}
+.footer a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer a:hover{color:var(--accent-l)}
+
+/* FADE ANIM */
+.fu{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}.fu.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-l{display:none}.srv-g{grid-template-columns:1fr}.prod{grid-template-columns:1fr;gap:32px}
+  .proc-g{grid-template-columns:repeat(2,1fr)}.proc-g::before{display:none}
+  .tech-g{grid-template-columns:repeat(3,1fr)}.footer-in{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+  <a href="#" class="logo">ABC<span>TechDesk</span></a>
+  <div class="nav-l">
+    <a href="#uslugi">Usługi</a>
+    <a href="#produkty">Produkty</a>
+    <a href="#proces">Proces</a>
+    <a href="#tech">Technologie</a>
+    <a href="#kontakt" class="btn btn-b" style="padding:8px 20px">Kontakt</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ctn hero-c">
+    <div class="hero-tag"><span class="blink">●</span> Tworzymy oprogramowanie na zamówienie</div>
+    <h1>Rozwiązania IT,<br>które <span class="hl">działają</span></h1>
+    <p>Projektujemy i budujemy systemy webowe, aplikacje i narzędzia automatyzacji dla małych i średnich firm. Od pomysłu do wdrożenia.</p>
+    <div class="hero-cta">
+      <a href="#kontakt" class="btn btn-b">Porozmawiajmy o projekcie →</a>
+      <a href="#produkty" class="btn btn-o">Zobacz nasze produkty</a>
+    </div>
+    <div class="hero-techs">
+      <div class="hero-tech"><span class="dot" style="background:#61dafb"></span> React</div>
+      <div class="hero-tech"><span class="dot" style="background:#3ecf8e"></span> Supabase</div>
+      <div class="hero-tech"><span class="dot" style="background:#000"></span> Next.js</div>
+      <div class="hero-tech"><span class="dot" style="background:#3776ab"></span> Python</div>
+      <div class="hero-tech"><span class="dot" style="background:#f59e0b"></span> AI / LLM</div>
+    </div>
+  </div>
+</section>
+
+<!-- USLUGI -->
+<section class="sec sec-alt" id="uslugi">
+  <div class="ctn">
+    <div class="sh fu">
+      <span class="tag">// Usługi</span>
+      <h2>Co robimy</h2>
+      <p>Kompleksowe usługi IT — od analizy potrzeb po utrzymanie i rozwój</p>
+    </div>
+    <div class="srv-g">
+      <div class="srv fu">
+        <span class="srv-i">⚡</span>
+        <h3>Systemy webowe</h3>
+        <p>Dedykowane aplikacje webowe dopasowane do Twojego procesu biznesowego. Panele admina, portale klienckie, dashboardy.</p>
+      </div>
+      <div class="srv fu">
+        <span class="srv-i">📱</span>
+        <h3>Aplikacje mobilne</h3>
+        <p>Progressive Web Apps działające jak natywne aplikacje na telefonie. Offline mode, powiadomienia push, instalacja z przeglądarki.</p>
+      </div>
+      <div class="srv fu">
+        <span class="srv-i">🤖</span>
+        <h3>Automatyzacja z AI</h3>
+        <p>Integracje z modelami AI, automatyzacja procesów dokumentowych, chatboty, rozpoznawanie obrazów i tekstu.</p>
+      </div>
+      <div class="srv fu">
+        <span class="srv-i">🔗</span>
+        <h3>Integracje systemów</h3>
+        <p>Łączenie istniejących narzędzi: ERP, CRM, księgowość, magazyn. API, webhooks, synchronizacja danych w czasie rzeczywistym.</p>
+      </div>
+      <div class="srv fu">
+        <span class="srv-i">📊</span>
+        <h3>Business Intelligence</h3>
+        <p>Dashboardy analityczne, raporty, wizualizacja danych. Podejmuj decyzje na podstawie faktów, nie przeczuć.</p>
+      </div>
+      <div class="srv fu">
+        <span class="srv-i">🛡️</span>
+        <h3>Wsparcie i utrzymanie</h3>
+        <p>Hosting, monitoring, aktualizacje bezpieczeństwa, backupy. Gwarancja ciągłości działania Twoich systemów.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKT: FRESHORDER -->
+<section class="sec" id="produkty">
+  <div class="ctn">
+    <div class="sh fu">
+      <span class="tag">// Nasz produkt</span>
+      <h2>FreshOrder</h2>
+      <p>Gotowy system zamówień B2B — uruchomienie w kilka dni, nie miesięcy</p>
+    </div>
+    <div class="prod fu">
+      <div class="prod-img">
+        <img src="freshorder/screens/dashboard.jpg" alt="FreshOrder Dashboard" onerror="this.style.background='#f1f5f9';this.style.minHeight='400px';this.alt='FreshOrder Dashboard'">
+      </div>
+      <div class="prod-content">
+        <span class="prod-badge">🔥 Gotowy produkt</span>
+        <h3>System zamówień B2B dla każdego dostawcy</h3>
+        <p>FreshOrder automatyzuje cały proces zamówień — od złożenia przez klienta, przez listę zakupów, po raporty finansowe i eksport do księgowości.</p>
+        <ul class="prod-features">
+          <li>Prosty panel zamawiania dla klientów</li>
+          <li>Automatyczna lista zakupów</li>
+          <li>Śledzenie kosztów i marży</li>
+          <li>Raporty i eksport CSV</li>
+          <li>Zarządzanie produktami i kategoriami</li>
+          <li>Działa na każdym urządzeniu</li>
+        </ul>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="freshorder/" class="btn btn-b">Zobacz demo FreshOrder →</a>
+          <a href="freshorder/#pricing" class="btn btn-o">Sprawdź cennik</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCES -->
+<section class="sec sec-alt" id="proces">
+  <div class="ctn">
+    <div class="sh fu">
+      <span class="tag">// Proces</span>
+      <h2>Jak pracujemy</h2>
+      <p>Przejrzysty proces, jasne zasady, regularna komunikacja</p>
+    </div>
+    <div class="proc-g">
+      <div class="proc fu">
+        <div class="proc-n">01</div>
+        <h3>Analiza</h3>
+        <p>Poznajemy Twój biznes, procesy i potrzeby. Definiujemy zakres projektu.</p>
+      </div>
+      <div class="proc fu">
+        <div class="proc-n">02</div>
+        <h3>Projekt</h3>
+        <p>Tworzymy makiety, prototyp i architekturę techniczną. Zatwierdzasz wygląd.</p>
+      </div>
+      <div class="proc fu">
+        <div class="proc-n">03</div>
+        <h3>Budowa</h3>
+        <p>Programujemy w sprintach. Co tydzień pokazujemy postępy i zbieramy feedback.</p>
+      </div>
+      <div class="proc fu">
+        <div class="proc-n">04</div>
+        <h3>Wdrożenie</h3>
+        <p>Szkolenie zespołu, migracja danych, uruchomienie produkcyjne. Wsparcie po starcie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGIE -->
+<section class="sec" id="tech">
+  <div class="ctn">
+    <div class="sh fu">
+      <span class="tag">// Technologie</span>
+      <h2>Stack technologiczny</h2>
+      <p>Nowoczesne, sprawdzone narzędzia</p>
+    </div>
+    <div class="tech-g fu">
+      <div class="tech-item"><span class="icon">⚛️</span><span>React</span></div>
+      <div class="tech-item"><span class="icon">▲</span><span>Next.js</span></div>
+      <div class="tech-item"><span class="icon">🟢</span><span>Supabase</span></div>
+      <div class="tech-item"><span class="icon">🐍</span><span>Python</span></div>
+      <div class="tech-item"><span class="icon">🤖</span><span>AI / LLM</span></div>
+      <div class="tech-item"><span class="icon">☁️</span><span>Vercel</span></div>
+      <div class="tech-item"><span class="icon">🎨</span><span>Tailwind</span></div>
+      <div class="tech-item"><span class="icon">📦</span><span>Node.js</span></div>
+      <div class="tech-item"><span class="icon">🗄️</span><span>PostgreSQL</span></div>
+      <div class="tech-item"><span class="icon">🔒</span><span>Auth / RLS</span></div>
+      <div class="tech-item"><span class="icon">📊</span><span>Chart.js</span></div>
+      <div class="tech-item"><span class="icon">🚀</span><span>CI/CD</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="kontakt">
+  <div class="ctn" style="position:relative;z-index:1">
+    <h2>Masz pomysł na projekt?</h2>
+    <p>Opowiedz nam o swoich potrzebach. Pierwsza konsultacja jest bezpłatna.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="mailto:kontakt@abctechdesk.com" class="btn btn-b" style="font-size:16px;padding:14px 32px">📧 kontakt@abctechdesk.com</a>
+      <a href="tel:+48000000000" class="btn btn-o" style="border-color:rgba(255,255,255,.3);color:#fff;font-size:16px;padding:14px 32px">📞 Zadzwoń</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="ctn">
+    <div class="footer-in">
+      <a href="#" class="logo">ABC<span>TechDesk</span></a>
+      <div style="display:flex;gap:24px;font-size:14px">
+        <a href="#uslugi">Usługi</a>
+        <a href="#produkty">Produkty</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="freshorder/">FreshOrder</a>
+      </div>
+      <div style="font-size:13px">© 2026 ABCTechDesk</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=window.scrollY>50?'0 2px 20px rgba(0,0,0,.08)':'none'});
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:.1,rootMargin:'-50px'});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
