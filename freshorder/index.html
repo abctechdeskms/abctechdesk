@@ -6,7 +6,7 @@
 <title>FreshOrder – System zamówień B2B</title>
 <meta name="description" content="FreshOrder – profesjonalny system zamówień B2B dla firm dostarczających produkty do klientów biznesowych. Automatyzacja zamówień, zarządzanie dostawami, raporty.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --orange: #e8590c;
@@ -66,6 +66,8 @@ body {
   font-weight: 500; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--orange); }
+.nav-back { font-family: 'Space Mono', monospace; font-size: 13px !important; color: var(--gray-500) !important; border-right: 1px solid var(--gray-300); padding-right: 24px !important; margin-right: 8px; letter-spacing: -0.5px; }
+.nav-back:hover { color: #3b82f6 !important; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 28px; border-radius: 50px; font-weight: 600;
@@ -340,6 +342,8 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-back-mobile { display: flex !important; align-items: center; font-family: 'Space Mono', monospace; font-size: 12px; color: var(--gray-500); text-decoration: none; margin-right: auto; }
+  .nav-back-mobile:hover { color: #3b82f6; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .hero p { margin: 0 auto 36px; }
   .hero-cta { justify-content: center; }
@@ -383,11 +387,13 @@ body {
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
+    <a href="/" class="nav-back-mobile" style="display:none">← ABC</a>
     <a href="#" class="nav-logo">
       <span class="nav-logo-icon">📦</span>
       <span class="nav-logo-text">Fresh<span>Order</span></span>
     </a>
     <div class="nav-links">
+      <a href="/" class="nav-back">← ABCTechDesk</a>
       <a href="#features">Funkcje</a>
       <a href="#demo">Demo</a>
       <a href="#how">Jak to działa</a>
